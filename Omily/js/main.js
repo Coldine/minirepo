@@ -1,3 +1,41 @@
+
+let config = [
+  { tableA: { sobres: 3, cartas:2 }, tableB: { sobres: 4, cartas: 3 } },
+  { tableA: { sobres: 9, cartas: 3 }, tableB: { sobres: 3, cartas: 1 } },
+  { tableA: { sobres: 2, cartas:1 }, tableB: { sobres: 7, cartas:0 } },
+  { tableA: { sobres: 5, cartas: 1 }, tableB: { sobres: 3, cartas: 2 } },
+];
+
+const TA_S = `<img class="i" src="data:image/png;base64,${sobre}" data-type="sobre" data-table="one" data-status="0">`;
+const TA_C = `<img class="i" src="data:image/png;base64,${carta}" data-type="carta" data-table="one" data-status="0">`;
+const TB_S = `<img class="i" src="data:image/png;base64,${sobre}" data-type="sobre" data-table="two" data-status="0">`;
+const TB_C = `<img class="i" src="data:image/png;base64,${carta}" data-type="carta" data-table="two" data-status="0">`;
+let contentA = [];
+let contentB = [];
+
+let TA = document.getElementsByClassName("tableA")[0];
+let TB = document.getElementsByClassName("tableB")[0];
+situation = Math.floor(Math.random() * (config.length));
+for (let i = 0; i < config[situation].tableA.cartas; i++) contentA.push(TA_S);
+for (let i = 0; i < config[situation].tableA.sobres; i++) contentA.push(TA_C);
+for (let i = 0; i < config[situation].tableB.cartas; i++) contentB.push(TB_S);
+for (let i = 0; i < config[situation].tableB.sobres; i++) contentB.push(TB_C);
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+TA.innerHTML = shuffle(contentA).join("\n");
+TB.innerHTML = shuffle(contentB).join("\n");
+
+
+/******************************************************/
+
+
 let imgs = Array.from(document.getElementsByClassName("i"));
 
 imgs.forEach((e) => e.addEventListener("click", (e) => setNewStatus(e)));
@@ -39,7 +77,7 @@ function runNoValidAnimation(e1, e2) {
     e2.dataset.status = "0";
     e1.classList.remove("shake");
     e2.classList.remove("shake");
-  }, 800);
+  }, 500);
 }
 function runDeleteAnimation(e1, e2) {
   e1.classList.add("delete");
@@ -47,24 +85,3 @@ function runDeleteAnimation(e1, e2) {
   e1.dataset.status = "0";
   e2.dataset.status = "0";
 }
-
-let config = [
-  { tableA: { cartas: 6, sobres: 2 }, tableB: { cartas: 3, sobres: 4 } },
-  { tableA: { cartas: 3, sobres: 3 }, tableB: { cartas: 3, sobres: 1 } },
-  { tableA: { cartas: 5, sobres: 2 }, tableB: { cartas: 7, sobres: 2 } },
-  { tableA: { cartas: 4, sobres: 2 }, tableB: { cartas: 1, sobres: 2 } },
-];
-
-const TA_S = `<img class="i" src="img/sobre.png" data-type="sobre" data-table="one" data-status="0">`;
-const TA_C = `<img class="i" src="img/carta.png" data-type="carta" data-table="one" data-status="0">`;
-const TB_S = `<img class="i" src="img/sobre.png" data-type="sobre" data-table="two" data-status="0">`;
-const TB_C = `<img class="i" src="img/carta.png" data-type="carta" data-table="two" data-status="0">`;
-let contentT = [];
-
-let TA = document.getElementsByClassName("tableA");
-let TB = document.getElementsByClassName("tableB");
-// for (const key in config[0]) {
-//     const types = config[0][key];
-//     console.log(types);
-    
-// }
