@@ -1,10 +1,10 @@
-
-let config = [
-  { tableA: { sobres: 3, cartas:2 }, tableB: { sobres: 4, cartas: 3 } },
-  { tableA: { sobres: 9, cartas: 3 }, tableB: { sobres: 3, cartas: 1 } },
-  { tableA: { sobres: 2, cartas:1 }, tableB: { sobres: 7, cartas:0 } },
-  { tableA: { sobres: 5, cartas: 1 }, tableB: { sobres: 3, cartas: 2 } },
-];
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+let config3 = [{ tableA: { sobres: 1, cartas: 0 }, tableB: { sobres: 0, cartas: random(1, 3) } } ];
+let config2 = [{ tableA: { sobres: 1, cartas: random(1, 4) }, tableB: { sobres: 0, cartas: random(5, 9) } } ];
+let s2 = random(1, 4);
+let config = [{ tableA: { sobres: s2, cartas: random(4, 5) }, tableB: { sobres: s2 + 1, cartas: random(1, 3) } } ];
 
 const TA_S = `<img class="i" src="data:image/png;base64,${sobre}" data-type="sobre" data-table="one" data-status="0">`;
 const TA_C = `<img class="i" src="data:image/png;base64,${carta}" data-type="carta" data-table="one" data-status="0">`;
@@ -15,11 +15,12 @@ let contentB = [];
 
 let TA = document.getElementsByClassName("tableA")[0];
 let TB = document.getElementsByClassName("tableB")[0];
-situation = Math.floor(Math.random() * (config.length));
-for (let i = 0; i < config[situation].tableA.cartas; i++) contentA.push(TA_S);
-for (let i = 0; i < config[situation].tableA.sobres; i++) contentA.push(TA_C);
-for (let i = 0; i < config[situation].tableB.cartas; i++) contentB.push(TB_S);
-for (let i = 0; i < config[situation].tableB.sobres; i++) contentB.push(TB_C);
+situation = Math.floor(Math.random() * config.length);
+
+for (let i = 0; i < config[situation].tableA.cartas; i++) contentA.push(TA_C);
+for (let i = 0; i < config[situation].tableA.sobres; i++) contentA.push(TA_S);
+for (let i = 0; i < config[situation].tableB.cartas; i++) contentB.push(TB_C);
+for (let i = 0; i < config[situation].tableB.sobres; i++) contentB.push(TB_S);
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -28,13 +29,17 @@ function shuffle(array) {
   }
   return array;
 }
-
-TA.innerHTML = shuffle(contentA).join("\n");
-TB.innerHTML = shuffle(contentB).join("\n");
-
+let Ca = shuffle(contentA).join("\n");
+let Cb = shuffle(contentB).join("\n");
+if (Math.random() > 0.5) {
+  TB.innerHTML = Ca;
+  TA.innerHTML = Cb;
+} else {
+  TA.innerHTML = Ca;
+  TB.innerHTML = Cb;
+}
 
 /******************************************************/
-
 
 let imgs = Array.from(document.getElementsByClassName("i"));
 
@@ -80,8 +85,12 @@ function runNoValidAnimation(e1, e2) {
   }, 500);
 }
 function runDeleteAnimation(e1, e2) {
-  e1.classList.add("delete");
-  e2.classList.add("delete");
-  e1.dataset.status = "0";
-  e2.dataset.status = "0";
+  e1.dataset.status = "1";
+  e2.dataset.status = "1";
+  window.setTimeout(function () {
+    e1.classList.add("delete");
+    e2.classList.add("delete");
+    e1.dataset.status = "0";
+    e2.dataset.status = "0";
+  }, 300);
 }
