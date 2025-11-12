@@ -16,12 +16,14 @@ for (let i = 0; i < numOfEls; i++) {
   img.setAttribute("src", `img/${imgList[i]}.png`);
   img.setAttribute("draggable", `false`);
   player.appendChild(img);
-
+  
   let span = document.createElement("span");
+  span.setAttribute("draggable", `false`);
   span.classList.add("label");
   // span.innerText="180.5";
-
+  
   let div = document.createElement("div");
+  div.setAttribute("draggable", `false`);
   div.setAttribute("data-related", `img/${imgList[i]}.png`);
   selectors.appendChild(div);
   

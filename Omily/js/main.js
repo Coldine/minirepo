@@ -1,10 +1,10 @@
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-let config3 = [{ tableA: { sobres: 1, cartas: 0 }, tableB: { sobres: 0, cartas: random(1, 3) } } ];
-let config2 = [{ tableA: { sobres: 1, cartas: random(1, 4) }, tableB: { sobres: 0, cartas: random(5, 9) } } ];
+let config2 = [{ tableA: { sobres: 1, cartas: 0 }, tableB: { sobres: 0, cartas: random(1, 3) } } ];
+let config3 = [{ tableA: { sobres: 1, cartas: random(1, 4) }, tableB: { sobres: 0, cartas: random(5, 8) } } ];
 let s2 = random(1, 4);
-let config = [{ tableA: { sobres: s2, cartas: random(4, 5) }, tableB: { sobres: s2 + 1, cartas: random(1, 3) } } ];
+let config = [{ tableA: { sobres: s2, cartas: random(3, 4) }, tableB: { sobres: s2 + 1, cartas: random(1, 2) } } ];
 
 const TA_S = `<img class="i" src="data:image/png;base64,${sobre}" data-type="sobre" data-table="one" data-status="0">`;
 const TA_C = `<img class="i" src="data:image/png;base64,${carta}" data-type="carta" data-table="one" data-status="0">`;
@@ -94,3 +94,47 @@ function runDeleteAnimation(e1, e2) {
     e2.dataset.status = "0";
   }, 300);
 }
+/******************************************************/
+
+document.getElementById('modelo-carta').setAttribute("src", `data:image/png;base64,${carta}`);
+document.getElementById('modelo-sobre').setAttribute("src", `data:image/png;base64,${sobre}`);
+
+const modelo = document.getElementById("modelo-carta");
+const tableB = document.querySelector(".tableB");
+
+let isTouching = false;
+
+function crearCopia() {
+  const copia = modelo.cloneNode(true);
+  copia.removeAttribute("id"); // Evita duplicados de ID
+  tableB.appendChild(copia);
+}
+
+// --- Soporte de mouse ---
+modelo.addEventListener("dragstart", e => {
+  e.dataTransfer.setData("text/plain", "modelo-carta");
+});
+
+tableB.addEventListener("dragover", e => e.preventDefault());
+
+tableB.addEventListener("drop", e => {
+  e.preventDefault();
+  crearCopia();
+});
+
+// --- Soporte táctil (móviles/tablets) ---
+modelo.addEventListener("touchstart", () => {
+  isTouching = true;
+});
+
+modelo.addEventListener("touchend", e => {
+  if (!isTouching) return;
+  isTouching = false;
+
+  const touch = e.changedTouches[0];
+  const target = document.elementFromPoint(touch.clientX, touch.clientY);
+  
+  if (tableB.contains(target)) {
+    crearCopia();
+  }
+});

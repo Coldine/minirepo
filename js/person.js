@@ -15,7 +15,7 @@
 //   }
 // }
 
-const LIMIT = 400; // límite inferior en px
+const LIMIT = 600; // límite inferior en px
 const draggables = document.querySelectorAll('.selectors > div');
 
 draggables.forEach(el => {
