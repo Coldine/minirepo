@@ -99,42 +99,80 @@ function runDeleteAnimation(e1, e2) {
 document.getElementById('modelo-carta').setAttribute("src", `data:image/png;base64,${carta}`);
 document.getElementById('modelo-sobre').setAttribute("src", `data:image/png;base64,${sobre}`);
 
-const modelo = document.getElementById("modelo-carta");
-const tableB = document.querySelector(".tableB");
 
+const modelos = document.querySelector(".adder").childNodes;
+const zonas = document.querySelectorAll("[name='table']");
+let flotante = null;
 let isTouching = false;
 
-function crearCopia() {
+// Clona el elemento y lo inserta en la zona
+function crearCopia(modelo, zona) {
   const copia = modelo.cloneNode(true);
-  copia.removeAttribute("id"); // Evita duplicados de ID
-  tableB.appendChild(copia);
+  copia.removeAttribute('id');
+  // copia.style.position = 'absolute';
+  // copia.style.left = '50%';
+  // copia.style.top = '50%';
+  // copia.style.transform = 'translate(-50%, -50%)';
+  zona.appendChild(copia);
 }
 
-// --- Soporte de mouse ---
-modelo.addEventListener("dragstart", e => {
-  e.dataTransfer.setData("text/plain", "modelo-carta");
+// --- Soporte mouse ---
+modelos.forEach(modelo => {
+  modelo.addEventListener('dragstart', e => {
+    e.dataTransfer.setData('text/plain', modelo.id);
+    modelo.classList.add('flotando');
+  });
+
+  modelo.addEventListener('dragend', e => {
+    modelo.classList.remove('flotando');
+  });
 });
 
-tableB.addEventListener("dragover", e => e.preventDefault());
-
-tableB.addEventListener("drop", e => {
-  e.preventDefault();
-  crearCopia();
+zonas.forEach(zona => {
+  zona.addEventListener('dragover', e => e.preventDefault());
+  zona.addEventListener('drop', e => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text/plain');
+    const modelo = document.getElementById(id);
+    crearCopia(modelo, zona);
+  });
 });
 
-// --- Soporte táctil (móviles/tablets) ---
-modelo.addEventListener("touchstart", () => {
-  isTouching = true;
-});
+// --- Soporte táctil ---
+modelos.forEach(modelo => {
+  modelo.addEventListener('touchstart', e => {
+    isTouching = true;
+    const touch = e.touches[0];
+    flotante = modelo.cloneNode(true);
+    flotante.removeAttribute('id');
+    flotante.classList.add('flotando');
+    flotante.style.left = touch.pageX + 'px';
+    flotante.style.top = touch.pageY + 'px';
+    flotante.style.width = modelo.width + 'px';
+    flotante.style.height = modelo.height + 'px';
+    document.querySelector(".adder").appendChild(flotante);
+  });
 
-modelo.addEventListener("touchend", e => {
-  if (!isTouching) return;
-  isTouching = false;
+  modelo.addEventListener('touchmove', e => {
+    if (!flotante) return;
+    const touch = e.touches[0];
+    flotante.style.left = touch.pageX + 'px';
+    flotante.style.top = touch.pageY + 'px';
+  });
 
-  const touch = e.changedTouches[0];
-  const target = document.elementFromPoint(touch.clientX, touch.clientY);
-  
-  if (tableB.contains(target)) {
-    crearCopia();
-  }
+  modelo.addEventListener('touchend', e => {
+    if (!isTouching) return;
+    isTouching = false;
+
+    const touch = e.changedTouches[0];
+    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+    zonas.forEach(zona => {
+      if (zona.contains(target)) {
+        crearCopia(modelo, zona);
+      }
+    });
+
+    flotante?.remove();
+    flotante = null;
+  });
 });
