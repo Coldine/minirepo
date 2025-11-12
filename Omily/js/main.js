@@ -48,7 +48,13 @@ imgs.forEach((e) => e.addEventListener("click", (e) => setNewStatus(e)));
 function setNewStatus(e) {
   e.preventDefault();
   let currentImg = e.target;
-  imgs = Array.from(document.getElementsByClassName("i"));
+  // imgs = Array.from(document.getElementsByClassName("i"));
+  currentImg.addEventListener('animationend', e => {
+    if (e.animationName === 'small-transparent') {
+      currentImg.style.display = 'none';
+    }
+  });
+
   let statuses = imgs.filter((ii) => ii.dataset.status == 1);
   let imgAlreadySelected = statuses[0];
   let tableA = currentImg.dataset.table;
@@ -174,5 +180,7 @@ modelos.forEach(modelo => {
 
     flotante?.remove();
     flotante = null;
+    Array.from(document.getElementsByClassName("i")).forEach((e) => e.addEventListener("click", (e) => setNewStatus(e)));
+
   });
 });

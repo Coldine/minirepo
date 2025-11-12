@@ -39,12 +39,17 @@ section {
 .height1 {
   height: 40vh;
 }
+* {
+  user-select: none;
+}
 img {
   width: 26%;
   box-shadow: 4px 4px 7px 0 #0005;
   margin: 1%;
   border-radius: 5px;
-  transition: width, height 0.5s;
+}
+[name="table"] img{
+  transition: all  0.5s, outline 0s;
 }
 img[data-status="1"] {
   outline: var(--color-green) 2px solid;
