@@ -44,7 +44,7 @@ if (Math.random() > 0.5) {
 let imgs = Array.from(document.getElementsByClassName("i"));
 
 imgs.forEach((e) => e.addEventListener("click", (e) => setNewStatus(e)));
-
+let temporal; 
 function setNewStatus(e) {
   e.preventDefault();
   let currentImg = e.target;
@@ -77,8 +77,9 @@ function setNewStatus(e) {
   } else {
     currentImg.dataset.status = "1";
   }
-  console.log({ currentImg, imgAlreadySelected });
+  temporal = { currentImg, imgAlreadySelected };
 }
+console.log(temporal);
 function runNoValidAnimation(e1, e2) {
   e1.dataset.status = "1";
   e1.classList.add("shake");
@@ -115,11 +116,11 @@ let isTouching = false;
 function crearCopia(modelo, zona) {
   const copia = modelo.cloneNode(true);
   copia.removeAttribute('id');
-  // copia.style.position = 'absolute';
-  // copia.style.left = '50%';
-  // copia.style.top = '50%';
-  // copia.style.transform = 'translate(-50%, -50%)';
   zona.appendChild(copia);
+  let _table = (zona.classList.contains("tableA"))?"one":"two";
+  copia.classList.add("i");
+  copia.dataset.table = _table;
+  Array.from(document.getElementsByClassName("i")).forEach((e) => e.addEventListener("click", (e) => setNewStatus(e)));
 }
 
 // --- Soporte mouse ---
@@ -180,7 +181,5 @@ modelos.forEach(modelo => {
 
     flotante?.remove();
     flotante = null;
-    Array.from(document.getElementsByClassName("i")).forEach((e) => e.addEventListener("click", (e) => setNewStatus(e)));
-
   });
 });
