@@ -9,6 +9,8 @@
   --color-red: #ff0000;
   --color-black: #0d0221;
   --font-general-zise: calc(min(100vh, 100vw) * 0.03);
+  --v-h: 5.8;
+  --v-h-hover: calc(var(--v-h) * .95);
 }
 body {
   position: absolute;
@@ -121,11 +123,11 @@ img[data-status="1"].shake {
   }
   img {
     width: auto;
-    height: calc(100% / 4.6);
+    height: calc(100% / var(--v-h));
   }
   img[data-status="1"] {
     width: auto;
-    height: calc(100% / 4.4);
+    height: calc(100% / var(--v-h-hover));
   }
 }
 .flotando {

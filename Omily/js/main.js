@@ -31,40 +31,54 @@ function shuffle(array) {
 }
 let Ca = shuffle(contentA).join("\n");
 let Cb = shuffle(contentB).join("\n");
-if (Math.random() > 0.5) {
-  TB.innerHTML = Ca;
-  TA.innerHTML = Cb;
-} else {
   TA.innerHTML = Ca;
   TB.innerHTML = Cb;
-}
-
-/******************************************************/
+  if (Math.random() > 0.5) {
+    let table1 = TA.getAttribute("class");
+    let table2 = TB.getAttribute("class");
+    TA.setAttribute("class", table2);
+    TB.setAttribute("class", table1);
+    let iTA = TA.innerHTML;
+    let iTB = TB.innerHTML;
+    TA.innerHTML = iTB; 
+    TB.innerHTML = iTA; 
+  }
+  /******************************************************/
 
 let imgs = Array.from(document.getElementsByClassName("i"));
+// console.log(imgs);
+const handleImgClick = (ev) => setNewStatus(ev);
 
-imgs.forEach((e) => e.addEventListener("click", (e) => setNewStatus(e)));
+imgs.forEach((img) => img.addEventListener("click", handleImgClick));
+
 let temporal; 
 function setNewStatus(e) {
   e.preventDefault();
   let currentImg = e.target;
-  // imgs = Array.from(document.getElementsByClassName("i"));
+  imgs = Array.from(document.getElementsByClassName("i"));
   currentImg.addEventListener('animationend', e => {
     if (e.animationName === 'small-transparent') {
       currentImg.style.display = 'none';
     }
   });
+//  console.log({currentImg});
 
   let statuses = imgs.filter((ii) => ii.dataset.status == 1);
-  let imgAlreadySelected = statuses[0];
+  // console.log({statuses});
+  
+  let imgAlreadySelected = statuses[0] ?? null;
+  // console.log({imgAlreadySelected});
   let tableA = currentImg.dataset.table;
-  let tableB = imgAlreadySelected?.dataset.table;
   let typeA = currentImg.dataset.type;
+  let tableB = imgAlreadySelected?.dataset.table;
   let typeB = imgAlreadySelected?.dataset.type;
-
+  // console.log({tableA,tableB, typeA, typeB, s: statuses.length});
+  
   if (statuses.length > 0) {
     if (currentImg === imgAlreadySelected) {
       currentImg.dataset.status = "0";
+      currentImg = null;
+      imgAlreadySelected = null;
       return 0;
     }
     if (tableA != tableB && typeA == typeB)
@@ -78,8 +92,8 @@ function setNewStatus(e) {
     currentImg.dataset.status = "1";
   }
   temporal = { currentImg, imgAlreadySelected };
+  // console.log(temporal);
 }
-console.log(temporal);
 function runNoValidAnimation(e1, e2) {
   e1.dataset.status = "1";
   e1.classList.add("shake");
@@ -112,6 +126,7 @@ const zonas = document.querySelectorAll("[name='table']");
 let flotante = null;
 let isTouching = false;
 
+let lastAdded = null;
 // Clona el elemento y lo inserta en la zona
 function crearCopia(modelo, zona) {
   const copia = modelo.cloneNode(true);
@@ -120,7 +135,29 @@ function crearCopia(modelo, zona) {
   let _table = (zona.classList.contains("tableA"))?"one":"two";
   copia.classList.add("i");
   copia.dataset.table = _table;
-  Array.from(document.getElementsByClassName("i")).forEach((e) => e.addEventListener("click", (e) => setNewStatus(e)));
+  Array.from(document.getElementsByClassName("i")).forEach((img) => {
+    img.removeEventListener("click", handleImgClick);
+    img.addEventListener("click", handleImgClick);
+  });
+  if (lastAdded) {
+    let tableA = copia.dataset.table;
+    let typeA = copia.dataset.type;
+    let tableB = lastAdded?.dataset.table;
+    let typeB = lastAdded?.dataset.type;    
+    if (!(tableA != tableB && typeA == typeB)) {
+      removeLastAdded(copia);
+    }else{
+      lastAdded = null;
+    }
+  }else{
+    lastAdded = copia; 
+  }
+
+}
+function removeLastAdded(copia) {
+  lastAdded?.remove();
+  lastAdded = null;
+  copia.remove();
 }
 
 // --- Soporte mouse ---
