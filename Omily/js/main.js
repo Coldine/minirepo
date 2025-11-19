@@ -13,6 +13,28 @@ const TB_C = `<img class="i" src="data:image/png;base64,${carta}" data-type="car
 let contentA = [];
 let contentB = [];
 
+/*************************************************************************/
+global_position = 0;
+let bk = document.getElementById("bk");
+let nx = document.getElementById("nx");
+
+const eventBtnHandler = (e) => btnHandler(e);
+
+function btnHandler(e) {
+  let btn = e.target;
+  if (global_position == 0) {
+    bk.classList.add("hidden");
+  }else{
+    bk.classList.remove("hidden");
+  }
+  console.log({btn});
+}
+
+bk.addEventListener('click', eventBtnHandler);
+nx.addEventListener('click', eventBtnHandler);
+
+/*************************************************************************/
+
 let TA = document.getElementsByClassName("tableA")[0];
 let TB = document.getElementsByClassName("tableB")[0];
 situation = Math.floor(Math.random() * config.length);
@@ -43,7 +65,8 @@ let Cb = shuffle(contentB).join("\n");
     TA.innerHTML = iTB; 
     TB.innerHTML = iTA; 
   }
-  /******************************************************/
+
+/*************************************************************************/
 
 let imgs = Array.from(document.getElementsByClassName("i"));
 // console.log(imgs);
@@ -52,8 +75,11 @@ const handleImgClick = (ev) => setNewStatus(ev);
 imgs.forEach((img) => img.addEventListener("click", handleImgClick));
 
 let temporal; 
+
 function setNewStatus(e) {
   e.preventDefault();
+
+  if (lastAdded) removeLastAdded(null);
   let currentImg = e.target;
   imgs = Array.from(document.getElementsByClassName("i"));
   currentImg.addEventListener('animationend', e => {
@@ -62,7 +88,6 @@ function setNewStatus(e) {
     }
   });
 //  console.log({currentImg});
-
   let statuses = imgs.filter((ii) => ii.dataset.status == 1);
   // console.log({statuses});
   
@@ -129,6 +154,11 @@ let isTouching = false;
 let lastAdded = null;
 // Clona el elemento y lo inserta en la zona
 function crearCopia(modelo, zona) {
+  let selectedimg = document.querySelector("img[data-status='1']");
+  if(selectedimg) {
+    selectedimg.dataset.status = "0";
+  }
+
   const copia = modelo.cloneNode(true);
   copia.removeAttribute('id');
   zona.appendChild(copia);
@@ -157,7 +187,7 @@ function crearCopia(modelo, zona) {
 function removeLastAdded(copia) {
   lastAdded?.remove();
   lastAdded = null;
-  copia.remove();
+  copia?.remove();
 }
 
 // --- Soporte mouse ---
