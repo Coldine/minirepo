@@ -1,29 +1,17 @@
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-let config2 = [
-  {
-    tableA: { sobres: 1, cartas: 0 },
-    tableB: { sobres: 0, cartas: random(1, 3) },
-  },
-];
-let config3 = [
-  {
-    tableA: { sobres: 1, cartas: random(1, 4) },
-    tableB: { sobres: 0, cartas: random(5, 8) },
-  },
-];
-let s2 = random(1, 4);
-let config1 = [
-  {
-    tableA: { sobres: s2, cartas: random(3, 4) },
-    tableB: { sobres: s2 + 1, cartas: random(1, 2) },
-  },
-];
+
+let s0 = random(3, 7);
+let s_0 = random(3, 7);
+let s1 = random(1, 4);
+let s2 = random(1, 6);
 
 /********/
-let n = random(3, 5);
 let config = [
+  /**
+   * FASE 1: carta = carta
+   */
   {
     tableA: { sobres: 0, cartas: 1 },
     tableB: { sobres: 0, cartas: 1 },
@@ -33,8 +21,52 @@ let config = [
     tableB: { sobres: 0, cartas: 2 },
   },
   {
-    tableA: { sobres: 0, cartas: n },
-    tableB: { sobres: 0, cartas: n },
+    tableA: { sobres: 0, cartas: s0 },
+    tableB: { sobres: 0, cartas: s0 },
+  },
+  /**
+   * FASE 1: sobre = sobre
+   */
+  {
+    tableA: { sobres: 1, cartas: 0 },
+    tableB: { sobres: 1, cartas: 0 },
+  },
+  {
+    tableA: { sobres: 2, cartas: 0 },
+    tableB: { sobres: 2, cartas: 0 },
+  },
+  {
+    tableA: { sobres: s_0, cartas: 0 },
+    tableB: { sobres: s_0, cartas: 0 },
+  },
+  /**
+   * FASE 2: Solución Trivial
+   */
+  {
+    tableA: { sobres: 1, cartas: 0 },
+    tableB: { sobres: 0, cartas: random(1, 3) },
+  },
+  {
+    tableA: { sobres: 1, cartas: 0 },
+    tableB: { sobres: 0, cartas: random(4, 9) },
+  },
+  /* FASE 2 :: borrar sólo cartas */
+  {
+    tableA: { sobres: 1, cartas: random(2, 4) },
+    tableB: { sobres: 0, cartas: random(5, 8) },
+  },
+  {
+    tableA: { sobres: 1, cartas: random(2, 4) },
+    tableB: { sobres: 0, cartas: random(5, 8) },
+  },
+  /* FASE 2 :: borrar cartas y sobres */
+  {
+    tableA: { sobres: s1, cartas: random(3, 4) },
+    tableB: { sobres: s1 + 1, cartas: random(1, 2) },
+  },
+  {
+    tableA: { sobres: s2, cartas: random(5, 7) },
+    tableB: { sobres: s2 + 1, cartas: random(1, 4) },
   },
 ];
 /********/
@@ -59,38 +91,42 @@ function btnHandler(e) {
   if (btn == "nx") {
     global_position = global_position + 1;
   }
-  if (btn == "bk") {
-    global_position = global_position - 1;
-  }
+  // if (btn == "bk") {
+  //   global_position = global_position - 1;
+  // }
   if (global_position < 0) {
     global_position = 0;
     return 0;
   }
   if (global_position == 0) {
-    bk.classList.add("hidden");
+    // bk.classList.add("hidden");
   } else {
-    bk.classList.remove("hidden");
+    // bk.classList.remove("hidden");
+  }
+  if (global_position >= config.length - 1) {
+    global_position = config.length - 1;
+    nx.classList.add("hidden");
+  } else {
+    nx.classList.remove("hidden");
   }
   // console.log({global_position});
-  
   cleanTables();
   draw();
 }
 
-bk.addEventListener("click", eventBtnHandler);
+// bk.addEventListener("click", eventBtnHandler);
 nx.addEventListener("click", eventBtnHandler);
 
 function cleanTables() {
   document.querySelector(".tableA").innerHTML = "";
   document.querySelector(".tableB").innerHTML = "";
-  
 }
 /*************************************************************************/
 function draw() {
   let TA = document.querySelector(".tableA");
   let TB = document.querySelector(".tableB");
   // situation = Math.floor(Math.random() * config.length);
-  
+
   for (let i = 0; i < config[global_position].tableA.cartas; i++)
     contentA.push(TA_C);
   for (let i = 0; i < config[global_position].tableA.sobres; i++)
@@ -125,12 +161,11 @@ function draw() {
   contentB = [];
   let imgs = Array.from(document.getElementsByClassName("i"));
   // console.log(imgs);
-  
+
   imgs.forEach((img) => img.addEventListener("click", handleImgClick));
 }
 
 /*************************************************************************/
-
 
 let temporal;
 
@@ -311,4 +346,3 @@ modelos.forEach((modelo) => {
   });
 });
 draw();
-

@@ -137,6 +137,7 @@ button:disabled {
 .hidden{
   opacity: 0;
   cursor: inherit;
+  display: none;
 }
 @keyframes tilt-shaking {
   0% {
