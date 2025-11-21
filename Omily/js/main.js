@@ -38,6 +38,7 @@ let config = [
   },
 ];
 /********/
+const handleImgClick = (ev) => setNewStatus(ev);
 
 const TA_S = `<img class="i" src="data:image/png;base64,${sobre}" data-type="sobre" data-table="one" data-status="0">`;
 const TA_C = `<img class="i" src="data:image/png;base64,${carta}" data-type="carta" data-table="one" data-status="0">`;
@@ -67,24 +68,28 @@ function btnHandler(e) {
   }
   if (global_position == 0) {
     bk.classList.add("hidden");
-    return 0;
   } else {
     bk.classList.remove("hidden");
   }
+  // console.log({global_position});
+  
+  cleanTables();
   draw();
 }
 
 bk.addEventListener("click", eventBtnHandler);
 nx.addEventListener("click", eventBtnHandler);
 
+function cleanTables() {
+  document.querySelector(".tableA").innerHTML = "";
+  document.querySelector(".tableB").innerHTML = "";
+  
+}
 /*************************************************************************/
 function draw() {
   let TA = document.querySelector(".tableA");
   let TB = document.querySelector(".tableB");
   // situation = Math.floor(Math.random() * config.length);
-  TA.innerHTML = "";
-  TB.innerHTML = "";
-  console.log({TA,TB});
   
   for (let i = 0; i < config[global_position].tableA.cartas; i++)
     contentA.push(TA_C);
@@ -116,15 +121,16 @@ function draw() {
     TA.innerHTML = iTB;
     TB.innerHTML = iTA;
   }
+  contentA = [];
+  contentB = [];
+  let imgs = Array.from(document.getElementsByClassName("i"));
+  // console.log(imgs);
+  
+  imgs.forEach((img) => img.addEventListener("click", handleImgClick));
 }
 
 /*************************************************************************/
 
-let imgs = Array.from(document.getElementsByClassName("i"));
-// console.log(imgs);
-const handleImgClick = (ev) => setNewStatus(ev);
-
-imgs.forEach((img) => img.addEventListener("click", handleImgClick));
 
 let temporal;
 
@@ -305,3 +311,4 @@ modelos.forEach((modelo) => {
   });
 });
 draw();
+
