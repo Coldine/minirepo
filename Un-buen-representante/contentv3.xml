@@ -90,9 +90,9 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
   <string role="key" value="_name"></string>
   <unicode value="Un_buen_representante"></unicode>
   <string role="key" value="_nextIdeviceId"></string>
-  <int value="16"></int>
+  <int value="17"></int>
   <string role="key" value="_nextNodeId"></string>
-  <int value="11"></int>
+  <int value="12"></int>
   <string role="key" value="_nodeIdDict"></string>
   <dictionary>
    <unicode role="key" value="0"></unicode>
@@ -346,7 +346,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                 <instance class="exe.engine.field.TextField">
                  <dictionary>
                   <string role="key" value="_id"></string>
-                  <int value="244"></int>
+                  <int value="250"></int>
                   <string role="key" value="_idevice"></string>
                   <none></none>
                   <string role="key" value="_instruc"></string>
@@ -360,7 +360,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                  </dictionary>
                 </instance>
                 <string role="key" value="_id"></string>
-                <unicode value="10_137_2.1"></unicode>
+                <unicode value="10_137_2.2"></unicode>
                 <string role="key" value="_imageResource"></string>
                 <instance class="exe.engine.resource.Resource" reference="5">
                  <dictionary>
@@ -371,7 +371,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                   <string role="key" value="_storageName"></string>
                   <string value="Gemini_Generated_Image_sr4fitsr4fitsr4f.png"></string>
                   <string role="key" value="_userName"></string>
-                  <string value="/tmp/tmp9OJcCm/Gemini_Generated_Image_sr4fitsr4fitsr4f.png"></string>
+                  <string value="/tmp/tmptiGNwQ/Gemini_Generated_Image_sr4fitsr4fitsr4f.png"></string>
                   <string role="key" value="checksum"></string>
                   <string value="3fccd17353e5d688953544cf2ba214d8"></string>
                   <string role="key" value="exe.engine.resource.Resource.persistenceVersion"></string>
@@ -400,7 +400,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
            <string role="key" value="intlinks_to_anchors"></string>
            <dictionary></dictionary>
            <string role="key" value="nextImageId"></string>
-           <int value="2"></int>
+           <int value="3"></int>
            <string role="key" value="parentNode"></string>
            <reference key="4"></reference>
           </dictionary>
@@ -530,6 +530,8 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
               <string value=""></string>
               <string role="key" value="anchor_names"></string>
               <list></list>
+              <string role="key" value="anchors_linked_from_fields"></string>
+              <dictionary></dictionary>
               <string role="key" value="content_w_resourcePaths"></string>
               <unicode content="true" value="&lt;div class=&quot;exe-text&quot;&gt;&lt;p&gt;
 &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
@@ -755,7 +757,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
               <string role="key" value="nextImageId"></string>
               <int value="0"></int>
               <string role="key" value="parentNode"></string>
-              <none></none>
+              <reference key="8"></reference>
              </dictionary>
             </instance>
            </list>
@@ -1220,7 +1222,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                       <instance class="exe.engine.field.TextField">
                        <dictionary>
                         <string role="key" value="_id"></string>
-                        <int value="248"></int>
+                        <int value="251"></int>
                         <string role="key" value="_idevice"></string>
                         <none></none>
                         <string role="key" value="_instruc"></string>
@@ -1234,7 +1236,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                        </dictionary>
                       </instance>
                       <string role="key" value="_id"></string>
-                      <unicode value="11_138_2.4"></unicode>
+                      <unicode value="11_138_2.5"></unicode>
                       <string role="key" value="_imageResource"></string>
                       <instance class="exe.engine.resource.Resource" reference="15">
                        <dictionary>
@@ -1245,7 +1247,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                         <string role="key" value="_storageName"></string>
                         <string value="Gemini_Generated_Image_sr4fitsr4fitsr4f.png"></string>
                         <string role="key" value="_userName"></string>
-                        <string value="/tmp/tmpMoF9Dj.eXe/previews/allyourbase/Gemini_Generated_Image_sr4fitsr4fitsr4f.png"></string>
+                        <string value="/tmp/tmptiGNwQ/Gemini_Generated_Image_sr4fitsr4fitsr4f.png"></string>
                         <string role="key" value="checksum"></string>
                         <string value="3fccd17353e5d688953544cf2ba214d8"></string>
                         <string role="key" value="exe.engine.resource.Resource.persistenceVersion"></string>
@@ -1274,7 +1276,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                  <string role="key" value="intlinks_to_anchors"></string>
                  <dictionary></dictionary>
                  <string role="key" value="nextImageId"></string>
-                 <int value="5"></int>
+                 <int value="6"></int>
                  <string role="key" value="parentNode"></string>
                  <reference key="14"></reference>
                 </dictionary>
@@ -1512,7 +1514,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                    <instance class="exe.engine.field.TextField">
                     <dictionary>
                      <string role="key" value="_id"></string>
-                     <int value="242"></int>
+                     <int value="249"></int>
                      <string role="key" value="_idevice"></string>
                      <none></none>
                      <string role="key" value="_instruc"></string>
@@ -1526,7 +1528,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                     </dictionary>
                    </instance>
                    <string role="key" value="_id"></string>
-                   <unicode value="13_140_2.1"></unicode>
+                   <unicode value="13_140_2.2"></unicode>
                    <string role="key" value="_imageResource"></string>
                    <instance class="exe.engine.resource.Resource" reference="19">
                     <dictionary>
@@ -1537,7 +1539,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
                      <string role="key" value="_storageName"></string>
                      <string value="Gemini_Generated_Image_b5tx34b5tx34b5tx.png"></string>
                      <string role="key" value="_userName"></string>
-                     <string value="/tmp/tmp9OJcCm/Gemini_Generated_Image_b5tx34b5tx34b5tx.png"></string>
+                     <string value="/tmp/tmptiGNwQ/Gemini_Generated_Image_b5tx34b5tx34b5tx.png"></string>
                      <string role="key" value="checksum"></string>
                      <string value="95068e177647214019f1c84a46bbec5a"></string>
                      <string role="key" value="exe.engine.resource.Resource.persistenceVersion"></string>
@@ -1566,7 +1568,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
               <string role="key" value="intlinks_to_anchors"></string>
               <dictionary></dictionary>
               <string role="key" value="nextImageId"></string>
-              <int value="2"></int>
+              <int value="3"></int>
               <string role="key" value="parentNode"></string>
               <reference key="18"></reference>
              </dictionary>
@@ -1698,6 +1700,8 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
               <string value=""></string>
               <string role="key" value="anchor_names"></string>
               <list></list>
+              <string role="key" value="anchors_linked_from_fields"></string>
+              <dictionary></dictionary>
               <string role="key" value="content_w_resourcePaths"></string>
               <unicode content="true" value="&lt;div class=&quot;exe-text&quot;&gt;&lt;p&gt;
 &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
@@ -1878,7 +1882,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
               <string role="key" value="nextImageId"></string>
               <int value="0"></int>
               <string role="key" value="parentNode"></string>
-              <none></none>
+              <reference key="22"></reference>
              </dictionary>
             </instance>
            </list>
@@ -1927,11 +1931,235 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
         <list></list>
        </dictionary>
       </instance>
+      <instance class="exe.engine.node.Node" reference="25">
+       <dictionary>
+        <string role="key" value="_title"></string>
+        <unicode value="Más información"></unicode>
+        <string role="key" value="idevices"></string>
+        <list>
+         <instance class="exe.engine.jsidevice.JsIdevice" reference="23">
+          <dictionary>
+           <string role="key" value="_title"></string>
+           <unicode value=""></unicode>
+           <string role="key" value="_attributes"></string>
+           <list>
+            <tuple>
+             <string value="title"></string>
+             <list>
+              <string value="Title"></string>
+              <int value="0"></int>
+              <int value="0"></int>
+             </list>
+            </tuple>
+            <tuple>
+             <string value="category"></string>
+             <list>
+              <string value="Category"></string>
+              <int value="0"></int>
+              <int value="1"></int>
+             </list>
+            </tuple>
+            <tuple>
+             <string value="css-class"></string>
+             <list>
+              <string value="CSS class"></string>
+              <int value="0"></int>
+              <int value="2"></int>
+             </list>
+            </tuple>
+            <tuple>
+             <string value="icon"></string>
+             <list>
+              <string value="Icon"></string>
+              <int value="0"></int>
+              <int value="3"></int>
+             </list>
+            </tuple>
+           </list>
+           <string role="key" value="_author"></string>
+           <string value=""></string>
+           <string role="key" value="_iDeviceDir"></string>
+           <string value="text"></string>
+           <string role="key" value="_purpose"></string>
+           <string value=""></string>
+           <string role="key" value="_tip"></string>
+           <string value=""></string>
+           <string role="key" value="_typeName"></string>
+           <unicode value="Text"></unicode>
+           <string role="key" value="_valid"></string>
+           <bool value="1"></bool>
+           <string role="key" value="class_"></string>
+           <unicode value="text"></unicode>
+           <string role="key" value="edit"></string>
+           <bool value="0"></bool>
+           <string role="key" value="emphasis"></string>
+           <int value="0"></int>
+           <string role="key" value="exe.engine.jsidevice.JsIdevice.persistenceVersion"></string>
+           <int value="1"></int>
+           <string role="key" value="fields"></string>
+           <list>
+            <instance class="exe.engine.field.TextAreaField" reference="24">
+             <dictionary>
+              <string role="key" value="_id"></string>
+              <unicode value="127_2"></unicode>
+              <string role="key" value="_idevice"></string>
+              <reference key="23"></reference>
+              <string role="key" value="_instruc"></string>
+              <string value=""></string>
+              <string role="key" value="_name"></string>
+              <string value=""></string>
+              <string role="key" value="anchor_names"></string>
+              <list></list>
+              <string role="key" value="content_w_resourcePaths"></string>
+              <unicode content="true" value="&lt;div class=&quot;exe-text&quot;&gt;&lt;p&gt;&lt;/p&gt;
+&lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+        .reference-item {
+            border-left: 4px solid #A8DDE4; 
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .reference-item p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+    &lt;/style&gt;
+&lt;script&gt;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'cta-pink': '#FF6B6B',
+                        'cta-orange': '#FFC371',
+                        'cta-blue': '#A8DDE4',
+                        'cta-purple': '#B19CD9',
+                    }
+                }
+            }
+        }
+    &lt;/script&gt;
+&lt;p&gt;&lt;main class=&quot;max-w-3xl mx-auto my-8 space-y-8&quot;&gt;&lt;header class=&quot;text-center p-6 bg-cta-pink rounded-3xl shadow-2xl border-b-8 border-cta-purple&quot;&gt;
+&lt;h1 class=&quot;text-3xl md:text-4xl font-black text-white drop-shadow-md&quot;&gt;Créditos y Referencias&lt;/h1&gt;
+&lt;h2 class=&quot;text-xl font-semibold text-cta-orange mt-1&quot;&gt;Fundamentos y Recursos de la Secuencia Didáctica&lt;/h2&gt;
+&lt;/header&gt;&lt;!-- RECURSOS DIGITALES Y CÓDIGO --&gt;
+&lt;section class=&quot;bg-white rounded-xl shadow-lg p-6 border-t-4 border-cta-blue&quot;&gt;
+&lt;h3 class=&quot;text-xl font-bold text-cta-blue mb-4 flex items-center&quot;&gt;&lt;span class=&quot;text-2xl mr-3&quot; role=&quot;img&quot; aria-label=&quot;Tools icon&quot;&gt;🛠️&lt;/span&gt; Recursos Digitales y Gráficos&lt;/h3&gt;
+&lt;div class=&quot;space-y-4&quot;&gt;
+&lt;div class=&quot;bg-slate-50 p-3 rounded-lg&quot;&gt;
+&lt;p class=&quot;font-semibold text-slate-800&quot;&gt;Imágenes y Gráficos Generados:&lt;/p&gt;
+&lt;p class=&quot;text-sm text-slate-600&quot;&gt;Todas las imágenes e íconos temáticos (no incluidos en el HTML, sino utilizados como inspiración) fueron generadas con Inteligencia Artificial a través de: &lt;a href=&quot;https://gemini.google.com&quot; target=&quot;_blank&quot; class=&quot;text-cta-pink hover:underline font-medium block&quot; rel=&quot;noopener&quot;&gt;https://gemini.google.com&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;bg-slate-50 p-3 rounded-lg&quot;&gt;
+&lt;p class=&quot;font-semibold text-slate-800&quot;&gt;Recurso Interactivo Geogebra (Simulación):&lt;/p&gt;
+&lt;p class=&quot;text-sm text-slate-600&quot;&gt;El recurso manipulable para la exploración de la media se encuentra en el siguiente enlace: &lt;a href=&quot;https://docs.google.com/document/d/1OwCNhnG4KT3Xe2sSSRVXI1z5vYmDR-B8zzHgO_KtpKg/copy&quot; target=&quot;_blank&quot; class=&quot;text-cta-pink hover:underline font-medium block&quot; rel=&quot;noopener&quot;&gt;Documento de Misión (Geogebra)&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- REFERENCIAS ACADÉMICAS --&gt;
+&lt;section class=&quot;bg-white rounded-xl shadow-lg p-6 border-t-4 border-cta-orange&quot;&gt;
+&lt;h3 class=&quot;text-xl font-bold text-cta-orange mb-4 flex items-center&quot;&gt;&lt;span class=&quot;text-2xl mr-3&quot; role=&quot;img&quot; aria-label=&quot;Book icon&quot;&gt;📖&lt;/span&gt; Fundamento Teórico (Referencias)&lt;/h3&gt;
+&lt;div class=&quot;space-y-4&quot;&gt;
+&lt;div class=&quot;reference-item&quot;&gt;
+&lt;p&gt;Álvarez, I., Bautista, L., Carranza, E., &amp;amp; Soler-Álvarez, M. N. (2014). Actividades matemáticas: Conjeturar y argumentar. Números: Revista de Didáctica de las Matemáticas, (85), 75–90. &lt;a href=&quot;https://dialnet.unirioja.es/servlet/articulo?codigo=4894122&quot; target=&quot;_blank&quot; class=&quot;text-cta-purple hover:underline text-sm block&quot; rel=&quot;noopener&quot;&gt;https://dialnet.unirioja.es/servlet/articulo?codigo=4894122&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;reference-item&quot;&gt;
+&lt;p&gt;Duval, R. (2017). Semiosis y pensamiento humano: Registros semióticos y aprendizajes intelectuales (2.ª ed.). Universidad del Valle.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;reference-item&quot;&gt;
+&lt;p&gt;Garfield, J., &amp;amp; Ben-Zvi, D. (2008). Developing students’ statistical reasoning: Connecting research and teaching practice. Springer. &lt;a href=&quot;https://doi.org/10.1007/978-1-4020-8383-9&quot; target=&quot;_blank&quot; class=&quot;text-cta-purple hover:underline text-sm block&quot; rel=&quot;noopener&quot;&gt;https://doi.org/10.1007/978-1-4020-8383-9&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;reference-item&quot;&gt;
+&lt;p&gt;Ministerio de Educación Nacional. (2006). Estándares básicos de competencias en matemáticas: Guía sobre lo que los estudiantes deben saber y saber hacer con lo que aprenden. MEN.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;reference-item&quot;&gt;
+&lt;p&gt;Stylianides, A. J. (2007). The notion of proof in the context of elementary school mathematics. Educational Studies in Mathematics, 65(1), 1–20. &lt;a href=&quot;https://doi.org/10.1007/s10649-006-9038-0&quot; target=&quot;_blank&quot; class=&quot;text-cta-purple hover:underline text-sm block&quot; rel=&quot;noopener&quot;&gt;https://doi.org/10.1007/s10649-006-9038-0&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;footer class=&quot;text-center pt-4 border-t border-slate-300&quot;&gt;
+&lt;p class=&quot;text-sm text-slate-500&quot;&gt;Este recurso fue diseñado y articulado con base en la evidencia y el marco teórico presentado.&lt;/p&gt;
+&lt;/footer&gt;&lt;/main&gt;&lt;/p&gt;&lt;/div&gt;"></unicode>
+              <string role="key" value="exe.engine.field.Field.persistenceVersion"></string>
+              <int value="4"></int>
+              <string role="key" value="exe.engine.field.FieldWithResources.persistenceVersion"></string>
+              <int value="2"></int>
+              <string role="key" value="exe.engine.field.TextAreaField.persistenceVersion"></string>
+              <int value="3"></int>
+              <string role="key" value="htmlTag"></string>
+              <string value="div"></string>
+              <string role="key" value="images"></string>
+              <instance class="exe.engine.galleryidevice.GalleryImages">
+               <dictionary>
+                <string role="key" value=".listitems"></string>
+                <list></list>
+                <string role="key" value="idevice"></string>
+                <reference key="24"></reference>
+               </dictionary>
+              </instance>
+              <string role="key" value="intlinks_to_anchors"></string>
+              <dictionary></dictionary>
+              <string role="key" value="nextImageId"></string>
+              <int value="0"></int>
+              <string role="key" value="parentNode"></string>
+              <none></none>
+             </dictionary>
+            </instance>
+           </list>
+           <string role="key" value="icon"></string>
+           <unicode value=""></unicode>
+           <string role="key" value="id"></string>
+           <unicode value="16"></unicode>
+           <string role="key" value="ideviceCategory"></string>
+           <unicode value="Text and Tasks"></unicode>
+           <string role="key" value="lastIdevice"></string>
+           <bool value="0"></bool>
+           <string role="key" value="nextFieldId"></string>
+           <int value="3"></int>
+           <string role="key" value="originalicon"></string>
+           <string value=""></string>
+           <string role="key" value="parentNode"></string>
+           <reference key="25"></reference>
+           <string role="key" value="systemResources"></string>
+           <list></list>
+           <string role="key" value="undo"></string>
+           <bool value="1"></bool>
+           <string role="key" value="userResources"></string>
+           <list></list>
+           <string role="key" value="version"></string>
+           <int value="0"></int>
+          </dictionary>
+         </instance>
+        </list>
+        <string role="key" value="_id"></string>
+        <unicode value="11"></unicode>
+        <string role="key" value="_package"></string>
+        <reference key="2"></reference>
+        <string role="key" value="anchor_fields"></string>
+        <list></list>
+        <string role="key" value="exe.engine.node.Node.persistenceVersion"></string>
+        <int value="2"></int>
+        <string role="key" value="exportType"></string>
+        <string value="website"></string>
+        <string role="key" value="last_full_node_path"></string>
+        <string value="exe-node:Un%20buen%20representante:M%C3%A1s%20informaci%C3%B3n"></string>
+        <string role="key" value="parent"></string>
+        <reference key="4"></reference>
+        <string role="key" value="top_anchors_linked_from_fields"></string>
+        <list></list>
+        <string role="key" value="children"></string>
+        <list></list>
+       </dictionary>
+      </instance>
      </list>
     </dictionary>
    </instance>
    <unicode role="key" value="1"></unicode>
    <reference key="8"></reference>
+   <unicode role="key" value="11"></unicode>
+   <reference key="25"></reference>
    <unicode role="key" value="2"></unicode>
    <reference key="11"></reference>
    <unicode role="key" value="6"></unicode>
@@ -1950,7 +2178,7 @@ El contexto de la propuesta combina situaciones realistas y artificiales con sen
   <string role="key" value="backgroundImgTile"></string>
   <bool value="0"></bool>
   <string role="key" value="currentNode"></string>
-  <reference key="22"></reference>
+  <reference key="4"></reference>
   <string role="key" value="dublinCore"></string>
   <instance class="exe.engine.package.DublinCore">
    <dictionary>
