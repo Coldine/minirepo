@@ -53,22 +53,25 @@ let config = [
   /* FASE 2 :: borrar sólo cartas */
   {
     tableA: { sobres: 1, cartas: random(2, 4) },
-    tableB: { sobres: 0, cartas: random(5, 8) },
+    tableB: { sobres: 0, cartas: random(6, 9) },
   },
   {
     tableA: { sobres: 1, cartas: random(2, 4) },
-    tableB: { sobres: 0, cartas: random(5, 8) },
+    tableB: { sobres: 0, cartas: random(6, 9) },
   },
   /* FASE 2 :: borrar cartas y sobres */
   {
-    tableA: { sobres: s1, cartas: random(3, 4) },
+    tableA: { sobres: s1, cartas: random(4, 5) },
     tableB: { sobres: s1 + 1, cartas: random(1, 2) },
   },
   {
-    tableA: { sobres: s2, cartas: random(5, 7) },
+    tableA: { sobres: s2, cartas: random(6, 9) },
     tableB: { sobres: s2 + 1, cartas: random(1, 4) },
   },
 ];
+
+document.querySelector('.reset').addEventListener("click", draw);
+
 /********/
 const handleImgClick = (ev) => setNewStatus(ev);
 
@@ -78,6 +81,27 @@ const TB_S = `<img class="i" src="data:image/png;base64,${sobre}" data-type="sob
 const TB_C = `<img class="i" src="data:image/png;base64,${carta}" data-type="carta" data-table="two" data-status="0">`;
 let contentA = [];
 let contentB = [];
+let solved = true;
+let lastPositionsolved;
+
+function isSolvedAlready() {
+  if (global_position < 8) return 0;
+  let TA = document.querySelector(".tableA");
+  let TB = document.querySelector(".tableB");
+  let elWithOne =
+    TA.childElementCount == 1 ? TA : TB.childElementCount == 1 ? TB : false;
+  if (elWithOne) {
+    if (elWithOne.querySelector('img').dataset.type == "sobre") {
+      nx.classList.remove("hidden");
+      lastPositionsolved = global_position;
+      return 0;
+    }
+  }
+  if (lastPositionsolved != global_position) {
+    solved = false;
+    nx.classList.add("hidden");
+  }
+}
 
 /*************************************************************************/
 let global_position = 0;
@@ -90,18 +114,19 @@ function btnHandler(e) {
   let btn = e.target.id;
   if (btn == "nx") {
     global_position = global_position + 1;
+    lastPositionsolved = null;
   }
-  // if (btn == "bk") {
-  //   global_position = global_position - 1;
-  // }
+  if (btn == "bk") {
+    global_position = global_position - 1;
+  }
   if (global_position < 0) {
     global_position = 0;
     return 0;
   }
   if (global_position == 0) {
-    // bk.classList.add("hidden");
+    bk.classList.add("hidden");
   } else {
-    // bk.classList.remove("hidden");
+    bk.classList.remove("hidden");
   }
   if (global_position >= config.length - 1) {
     global_position = config.length - 1;
@@ -112,9 +137,10 @@ function btnHandler(e) {
   // console.log({global_position});
   cleanTables();
   draw();
+  isSolvedAlready()
 }
 
-// bk.addEventListener("click", eventBtnHandler);
+bk.addEventListener("click", eventBtnHandler);
 nx.addEventListener("click", eventBtnHandler);
 
 function cleanTables() {
@@ -177,7 +203,9 @@ function setNewStatus(e) {
   imgs = Array.from(document.getElementsByClassName("i"));
   currentImg.addEventListener("animationend", (e) => {
     if (e.animationName === "small-transparent") {
-      currentImg.style.display = "none";
+      // currentImg.style.display = "none";
+      currentImg.remove();
+      window.setTimeout(()=>isSolvedAlready(), 100);
     }
   });
   //  console.log({currentImg});
@@ -278,6 +306,8 @@ function crearCopia(modelo, zona) {
   } else {
     lastAdded = copia;
   }
+  isSolvedAlready();
+
 }
 function removeLastAdded(copia) {
   lastAdded?.remove();
@@ -346,3 +376,4 @@ modelos.forEach((modelo) => {
   });
 });
 draw();
+isSolvedAlready();

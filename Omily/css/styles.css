@@ -10,7 +10,7 @@
   --color-black: #0d0221;
   --font-general-zise: calc(min(100vh, 100vw) * 0.03);
   --v-h: 5.8;
-  --v-h-hover: calc(var(--v-h) * .95);
+  --v-h-hover: calc(var(--v-h) * 0.95);
 }
 body {
   position: absolute;
@@ -51,8 +51,8 @@ img {
   margin: 1%;
   border-radius: 5px;
 }
-[name="table"] img{
-  transition: all  0.5s, outline 0s;
+[name="table"] img {
+  transition: all 0.5s, outline 0s;
 }
 img[data-status="1"] {
   outline: var(--color-green) 2px solid;
@@ -62,8 +62,8 @@ img[data-status="1"] {
 body {
   background: var(--color-purple);
 }
-body section:nth-child(1){
-  margin-top: 4vh;
+body section:nth-child(1) {
+  margin-top: 5vh;
 }
 img[data-status="1"].shake {
   outline: var(--color-red) 2px solid;
@@ -80,7 +80,7 @@ img[data-status="1"].shake {
   border: var(--color-black) 2px dashed;
   background: transparent;
 }
-.adder>img {
+.adder > img {
   height: 80%;
   width: auto;
 }
@@ -97,32 +97,30 @@ img[data-status="1"].shake {
 }
 button {
   width: 40%;
-  background: #b68ce6;       /* un tono más oscuro para contraste */
+  background: #b68ce6; /* un tono más oscuro para contraste */
   color: #ffffff;
   border: none;
   padding: 10px 18px;
-  border-radius: 12px;        /* bordes redondeados */
+  border-radius: 12px; /* bordes redondeados */
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, 
-              transform 0.1s ease, 
-              box-shadow 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 /* Hover: un poco más claro y levanta */
 button:hover {
   background: #c7a2f1;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
 }
 
 /* Active: se “hunde” */
 button:active {
   background: #a57adf;
   transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* Disabled: apagado visual */
@@ -134,7 +132,7 @@ button:disabled {
   box-shadow: none;
 }
 
-.hidden{
+.hidden {
   opacity: 0;
   cursor: inherit;
   display: none;
@@ -163,6 +161,15 @@ button:disabled {
     opacity: 0;
   }
 }
+@media (orientation: landscape) {
+  *:not(html, body) {
+    display: none;
+  }
+  body {
+    background-color: black;
+    height: 100vh;
+  }
+}
 @media (orientation: portrait) {
   body {
     text-align: center;
@@ -188,6 +195,16 @@ button:disabled {
     width: auto;
     height: calc(100% / var(--v-h-hover));
   }
+  .reset {
+    width: 7vw;
+    height: 7vw;
+    top: 2vw;
+    position: fixed;
+    right: 2vw;
+    background-image: url('../img/reset.png');
+    background-position: center;
+    background-size: contain;
+  }
 }
 .flotando {
   /*! width: 8rem; */
@@ -197,4 +214,20 @@ button:disabled {
   opacity: 0.8;
   /*! transform: scale(1.1) rotate(3deg); */
   /*! box-shadow: 0 10px 15px rgba(0,0,0,0.3); */
+}
+.reset {
+  animation: girar 20s linear infinite;
+}
+
+/* Animación de rotación completa */
+@keyframes girar {
+  0% {
+    transform: rotate(0deg);
+  }
+  95% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(180deg);
+  }
 }
