@@ -151,6 +151,9 @@ function cleanTables() {
 function draw() {
   let TA = document.querySelector(".tableA");
   let TB = document.querySelector(".tableB");
+  let LA = document.querySelector(".A");
+  let LB = document.querySelector(".B");
+  
   // situation = Math.floor(Math.random() * config.length);
 
   for (let i = 0; i < config[global_position].tableA.cartas; i++)
@@ -183,6 +186,15 @@ function draw() {
     TA.innerHTML = iTB;
     TB.innerHTML = iTA;
   }
+  let labeler = ()=>{
+    LA.style.top = TA.offsetTop + "px";
+    LA.style.left = TA.offsetLeft + "px";
+    LB.style.top = TB.offsetTop + "px";
+    LB.style.left = TB.offsetLeft + "px";
+  };
+  labeler();
+  window.addEventListener("resize", labeler);
+
   contentA = [];
   contentB = [];
   let imgs = Array.from(document.getElementsByClassName("i"));
