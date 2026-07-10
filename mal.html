@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matemáticas arte y literatura</title>
+    <style>
+    *{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding:40px 20px;
+    background:#f6f7fb;
+    color:#2f2f2f;
+    font-family: Georgia, "Times New Roman", serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+textarea{
+    width:min(900px,95%);
+    min-height:260px;
+    padding:18px;
+    border:1px solid #d6d9e0;
+    border-radius:14px;
+    background:white;
+    resize:vertical;
+
+    font-family:inherit;
+    font-size:1.3rem;
+    line-height:1.75;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:#6c8cff;
+    box-shadow:0 0 0 4px rgba(108,140,255,.18);
+}
+
+main#ans{
+    width:min(900px,95%);
+    margin-top:35px;
+}
+
+main#ans p{
+    margin:18px 0;
+    padding:18px 22px;
+
+    background:white;
+    border-radius:14px;
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
+
+    font-size:1.3rem;
+    line-height:1.75;
+}
+
+button#mix{
+    margin-top:30px;
+    padding:14px 34px;
+
+    border:none;
+    border-radius:999px;
+
+    background:linear-gradient(135deg,#5c7cfa,#7b5cff);
+    color:white;
+
+    font-family:inherit;
+    font-size:1.03rem;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 22px rgba(92,124,250,.35);
+
+    transition:.25s;
+}
+
+button#mix:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 28px rgba(92,124,250,.45);
+}
+
+button#mix:active{
+    transform:translateY(1px);
+}
+
+span.red{
+    color:#d63b3b;
+    font-weight:bold;
+}
+
+span.blue{
+    color:#2962ff;
+    font-weight:bold;
+}
+
+span.gray{
+    color:#8a8a8a;
+    font-style:italic;
+}
+    </style>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <textarea name="texto" id="tx" cols="80" rows="10" autocomplete="false">
+Te quiero tanto, sin embargo, me alejo para no morir.
+Sentía grandes pasos tras ella, una presencia maligna estaba ahí.
+Tengo más visiones de mis muertes que de mis futuros.
+Es otro molesto bicho que se ha fijado en ti.
+No soy la mejor versión de mí mismo, odio eso.
+Lo más grande que he creado jamás son estas letras.
+Incluso ahora que se supone estoy bien me siento vacío.
+La muerte, sexy y lascivia me susurra que me ama.
+Hubo sólo una vez un gran escorpión rojo y negro.
+Por estos días, salgo de casa sin esperar nada realmente.</textarea
+    >
+    <button type="button" id="mix">A mezclar</button>
+
+    <main id="ans"></main>
+
+  </body>
+</html>
